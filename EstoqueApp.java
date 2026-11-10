@@ -47,7 +47,7 @@ public class EstoqueApp {
         // se achou, mostra o objeto completo
         else {
             System.out.println("Nome do produto: " + consult.nome);
-            System.out.println("Preço: R$ " + consult.preco);
+            System.out.printf("Preço: R$ %.2f%n", consult.preco);
             System.out.println("Quantidade em estoque: " + consult.qtd);
         }
     }
@@ -55,16 +55,16 @@ public class EstoqueApp {
     // remover produto
     // buscar o produto
     public void removerProduto(String nome) {
-        Produto removerProduto = buscarProduto(nome);
+        Produto remProd = buscarProduto(nome);
         // se não achou avisa e para
-        if (removerProduto == null) {
+        if (remProd == null) {
             System.out.println("Produto não encontrado.");
             return;
         }
         // se achou tira ele da lista e avisa que tirou
         else {
-            produtos.remove(removerProduto);
-            System.out.println("Produto removido da base de dados: " + removerProduto.nome);
+            produtos.remove(remProd);
+            System.out.println("Produto removido da base de dados: " + remProd.nome);
         }
     }
 
