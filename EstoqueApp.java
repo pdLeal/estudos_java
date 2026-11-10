@@ -24,7 +24,6 @@ public class EstoqueApp {
         if (jaExisteProduto != null) {
             System.out.println("Produto já existe na base de dados");
             return;
-
         }
         // se não, cria um produto, coloca a quantidade inicial e guarda na lista
         else {
@@ -34,6 +33,29 @@ public class EstoqueApp {
             System.out.println("Produto adicionado: " + novoProd.nome);
         }
     }
+
+    // consultar um produto
+    // receber o nome
+    // buscar o produto
+    public void consulta(String nome) {
+        Produto consult = buscarProduto(nome);
+        // se não achou aviso e paro
+        if (consult != null) {
+            System.out.println("Produto não encontrado");
+            return;
+        }
+        // se achou, mostra o objeto completo
+        else {
+            System.out.println("Nome do produto: " + consult.nome);
+            System.out.println("Preço: R$ " + consult.preco);
+            System.out.println("Quantidade em estoque: " + consult.qtd);
+        }
+    }
+
+    // remover produto
+    //buscar o produto
+    //se não achou avisa e para
+    //se achou tira ele da lista e avisa que tirou
 
     public static void main(String[] args) {
         EstoqueApp estoque = new EstoqueApp();
