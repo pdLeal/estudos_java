@@ -54,8 +54,19 @@ public class EstoqueApp {
 
     // remover produto
     //buscar o produto
-    //se não achou avisa e para
-    //se achou tira ele da lista e avisa que tirou
+    public void removerProduto(String nome){
+        Produto removerProduto = buscarProduto(nome);
+        //se não achou avisa e para
+        if (removerProduto == null){
+            System.out.println("Produto não encontrado.");
+            return;
+        }
+        //se achou tira ele da lista e avisa que tirou
+        else{
+            produtos.remove(removerProduto);
+            System.out.println("Produto removido da base de dados: " + removerProduto.nome);
+        }
+    }
 
     public static void main(String[] args) {
         EstoqueApp estoque = new EstoqueApp();
