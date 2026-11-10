@@ -40,7 +40,7 @@ public class EstoqueApp {
     public void consulta(String nome) {
         Produto consult = buscarProduto(nome);
         // se não achou aviso e paro
-        if (consult != null) {
+        if (consult == null) {
             System.out.println("Produto não encontrado");
             return;
         }
