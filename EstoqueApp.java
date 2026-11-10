@@ -85,12 +85,28 @@ public class EstoqueApp {
         }
     }
 
+    //validar a venda
+    //recebe o nome e quantidade que o cliente quer
+    public boolean podeVender(String nome, int qtdCliente){
+        //busca o produto
+        Produto prodDisponivel = buscarProduto(nome);
+        //se não existe, a venda não pode ser efetuada
+        if (prodDisponivel == null){
+            return false;
+        }
+        if(qtdCliente <= 0){
+            return false;
+        }
+        return prodDisponivel.qtd >= qtdCliente;
+        //se existe, a venda só será efetuada se a quantidade do estoque cubrir a quantidade pedida
+    }
+    
     public static void main(String[] args) {
         EstoqueApp estoque = new EstoqueApp();
 
         estoque.novoProduto("Caneta", 2.50, 100);
-        estoque.alterarProduto("Caneta", "Caneta Azul", 3.00, 15); // adapte aos seus parâmetros
-        estoque.consultarProduto("Caneta Azul"); // nome e preço novos
-        estoque.consultarProduto("Caneta"); // "não encontrado"
+System.out.println(estoque.podeVender("Caneta", 30));    // true
+System.out.println(estoque.podeVender("Caneta", 500));   // false
+System.out.println(estoque.podeVender("Lápis", 1));      // false
     }
 }
