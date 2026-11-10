@@ -37,7 +37,7 @@ public class EstoqueApp {
     // consultar um produto
     // receber o nome
     // buscar o produto
-    public void consulta(String nome) {
+    public void consultarProduto(String nome) {
         Produto consult = buscarProduto(nome);
         // se não achou aviso e paro
         if (consult == null) {
@@ -72,8 +72,8 @@ public class EstoqueApp {
         EstoqueApp estoque = new EstoqueApp();
 
         estoque.novoProduto("Caneta", 2.50, 100);
-        estoque.consulta("Caneta"); // deve mostrar os dados
+        estoque.consultarProduto("Caneta"); // deve mostrar os dados
         estoque.removerProduto("Caneta"); // deve avisar que removeu
-        estoque.consulta("Caneta");
+        estoque.consultarProduto("Caneta");
     }
 }
