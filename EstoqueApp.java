@@ -68,12 +68,29 @@ public class EstoqueApp {
         }
     }
 
+    // atualizar/alterar um produto
+    // receber o nome, novo preço e nova quantidade
+    public void alterarProduto(String nome, String novoNome, double novoPreco, int novaQtd) {
+        // buscar o produto
+        Produto upProd = buscarProduto(nome);
+        // se não achou, avisa e para
+        if (upProd == null) {
+            System.out.println("Produto não encontrado.");
+            return;
+        }
+        // se achou faz o update
+        else {
+            upProd.update(novoNome, novoPreco, novaQtd);
+            System.out.println("Produto atualizado: " + upProd.nome);
+        }
+    }
+
     public static void main(String[] args) {
         EstoqueApp estoque = new EstoqueApp();
 
         estoque.novoProduto("Caneta", 2.50, 100);
-        estoque.consultarProduto("Caneta"); // deve mostrar os dados
-        estoque.removerProduto("Caneta"); // deve avisar que removeu
-        estoque.consultarProduto("Caneta");
+        estoque.alterarProduto("Caneta", "Caneta Azul", 3.00, 15); // adapte aos seus parâmetros
+        estoque.consultarProduto("Caneta Azul"); // nome e preço novos
+        estoque.consultarProduto("Caneta"); // "não encontrado"
     }
 }

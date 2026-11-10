@@ -49,7 +49,7 @@ public class Produto {
         this.alterar_preco(novo_preco);
 
         if (nova_qtd >= 0) {
-            this.preco = nova_qtd;
+            this.qtd = nova_qtd;
 
         } else {
             throw new IllegalArgumentException("Nova quantidade deve ser maior ou igual a 0");
