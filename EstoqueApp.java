@@ -53,16 +53,16 @@ public class EstoqueApp {
     }
 
     // remover produto
-    //buscar o produto
-    public void removerProduto(String nome){
+    // buscar o produto
+    public void removerProduto(String nome) {
         Produto removerProduto = buscarProduto(nome);
-        //se não achou avisa e para
-        if (removerProduto == null){
+        // se não achou avisa e para
+        if (removerProduto == null) {
             System.out.println("Produto não encontrado.");
             return;
         }
-        //se achou tira ele da lista e avisa que tirou
-        else{
+        // se achou tira ele da lista e avisa que tirou
+        else {
             produtos.remove(removerProduto);
             System.out.println("Produto removido da base de dados: " + removerProduto.nome);
         }
@@ -72,6 +72,8 @@ public class EstoqueApp {
         EstoqueApp estoque = new EstoqueApp();
 
         estoque.novoProduto("Caneta", 2.50, 100);
-        estoque.novoProduto("Caneta", 3.00, 50);
+        estoque.consulta("Caneta"); // deve mostrar os dados
+        estoque.removerProduto("Caneta"); // deve avisar que removeu
+        estoque.consulta("Caneta");
     }
 }
